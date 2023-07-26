@@ -26,12 +26,12 @@ function Validar() {
 
 // FUNÇÃO PARA CRIAÇÃO DE LISTA NA TABELA
 
-function criarLista(){
-    let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário</th><th>Ações</th></tr>";
+    function criaLista(){
+        let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário</th><th>Ações</th></tr>";
     
     // LAÇO DE REPETIÇÃO PARA COLOCAR NOMES NA TABELA
     for (let i = 0; i <= (dadosLista.length - 1); i++) {
-        tabela += "<tr><td>" + dadosLista[i] + "</td><td><button class='btn btn-success' onclick=''>Editar</button><button class='btn btn-danger' onclick='editar(this.parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>";
+        tabela += "<tr><td>" + dadosLista[i] + "</td><td><button class='btn btn-success' onclick='editar(this.parentNode.parentNode.rowIndex)'>Editar</button><button class='btn btn-danger' onclick='excluir(this.parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>";
         document.getElementById("tabela").innerHTML = tabela;
     }
 }
@@ -44,6 +44,6 @@ function editar(i){
 
 // função para excluir nome
 function excluir(i){
-    dadosLista.splice(dadosLista(i - 1),1);
-    document.getElementById('tabela').deletRow(i);
+    dadosLista.splice((i - 1), 1);
+    document.getElementById('tabela').deleteRow(i);
 }
